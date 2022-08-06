@@ -1,0 +1,94 @@
+#sync1 {
+    .item {
+      
+      width: 690px;
+     height: 300px;
+    }
+  }
+  
+  #sync2 {
+    height: 73px;
+    display: flex;
+    box-shadow: 0 0 4px rgb(0 0 0 / 25%);
+    position: relative;
+    overflow: hidden;
+    .item {
+      width: 100%;
+      height: 50px;
+     position: relative;
+   
+    .item a {
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      position: absolute;
+      font-size: 15px;
+      text-decoration: none;
+     width: 100%;
+      display: block;
+      text-decoration: none;
+    color: #000;
+      }
+    }
+    .current .item{
+      color: #000;
+      font-weight: 600;
+    }
+    .current::after{
+      position: absolute;
+      content: '';
+      background-color: #2f80ed;
+      width: 100%;
+      height: 5px;
+      top: 0;
+      left: 0;
+    }
+  }
+  
+  
+  
+  .owl-theme {
+    .owl-nav {
+      /*default owl-theme theme reset .disabled:hover links */
+      [class*='owl-'] {
+        transition: all .3s ease;
+        &.disabled:hover {
+         background-color: #D6D6D6;
+        }   
+      }
+      
+    }
+  }
+  
+  //arrows on first carousel
+  #sync1.owl-theme {
+    position: relative;
+    .owl-next, .owl-prev {
+      width: 22px;
+      height: 40px;
+      margin-top: -20px;
+      position: absolute;
+      top: 50%;
+    }
+    .owl-prev {
+      opacity: 0;
+      left: -5px;
+      background-color: #fff;
+      height: 50px;
+    }
+    .owl-next {
+      height: 50px;
+      opacity: 0;
+      right: -5px;
+      background-color: #fff;
+    }
+  }
+  #sync1.owl-theme:hover{
+    .owl-prev{
+      opacity: 1;
+    }
+    .owl-next{
+      opacity: 1;
+    }
+  }
