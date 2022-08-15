@@ -36,6 +36,7 @@ input::placeholder{
 .header h3{
     font-size: 30px;
     color: #492f50;
+    text-transform: uppercase;
 }
 .user,
 .pass{

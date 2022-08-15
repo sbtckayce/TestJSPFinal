@@ -9,15 +9,16 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="./assets/css/signin.css">
-    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web%20(1)/fontawesome-free-5.15.4-web/css/all.min.css">
 
+    <link rel="stylesheet"
+          href="assets/font/fontawesome-free-5.15.4-web%20(1)/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/signin.css">
     <title>Title</title>
 </head>
 <body>
 <div class="main">
     <div class="container">
-        <form id="form" class="form" action="/Adev/login" method="post">
+        <form id="form" class="form" action="/TestJSP/login" method="post">
 
             <div class="alert alert-danger" role="alert" style="color: red">
                 <p>${mess}</p>
@@ -52,12 +53,12 @@ value="${nameuser}"
                 </div>
             </div>
             <div class="sign-up">
-                <a href="/Adev/signup.jsp">Sign Up</a>
+                <a href="/TestJSP/signup.jsp">Sign Up</a>
             </div>
 
         </form>
     </div>
 </div>
-<script src="./assets/js/signin.js"></script>
+<script src="assets/js/signin.js"></script>
 </body>
 </html>

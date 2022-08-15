@@ -6,15 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnect {
-    private static DBConnect dbConnect;
-    private static Connection connection;
-//    private static final String DB_URL = "jdbc:mysql://localhost:3306/user";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/testjsp";
-
     private static final String USER = "root";
     private static final String PASS = "";
-
-
+    private static DBConnect dbConnect;
+    private static Connection connection;
 
     public static Statement connect() throws SQLException, ClassNotFoundException {
         if (connection == null || connection.isClosed()) {

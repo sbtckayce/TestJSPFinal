@@ -10,13 +10,14 @@
 <html>
 <head>
     <link rel="stylesheet" href="./assets/css/signup.css">
-    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web%20(1)/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet"
+          href="./assets/font/fontawesome-free-5.15.4-web%20(1)/fontawesome-free-5.15.4-web/css/all.min.css">
     <title>Title</title>
 </head>
 <body>
 <div class="main">
     <div class="container">
-        <form id="form" class="form" action="/Adev/register" method="post">
+        <form id="form" class="form" action="/TestJSP/register" method="post">
 
             <div class="alert alert-danger" role="alert" style="color: red">
                 <p>${same}</p>
@@ -64,7 +65,7 @@
             </div> -->
             <div class="sign-up">
                 <p>Dont have an Account ?</p>
-                <a href="/Adev/signin.jsp">Sign In</a>
+                <a href="/TestJSP/signin.jsp">Sign In</a>
             </div>
 
         </form>

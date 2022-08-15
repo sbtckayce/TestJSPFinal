@@ -6,16 +6,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet"
-          href="./assets/font/fontawesome-free-5.15.4-web (1)/fontawesome-free-5.15.4-web/css/all.min.css">
+          href="assets/font/fontawesome-free-5.15.4-web%20(1)/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet">
 
-    <link rel="stylesheet/less" type="text/css" href="./assets/css/style.less"/>
+    <link rel="stylesheet/less" type="text/css" href="assets/css/style.less"/>
     <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -30,12 +30,13 @@
           integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <link rel="stylesheet" href="./assets/js/wowjs-1/animate.css">
+    <link rel="stylesheet" href="assets/js/wowjs-1/animate.css">
     <style>
-        .xemthempr:hover{
+        .xemthempr:hover {
             color: #4285DE !important;
         }
-        .menu-product-decription .item:hover{
+
+        .menu-product-decription .item:hover {
 
         }
     </style>
@@ -74,7 +75,7 @@
 
                                 <!-- </div> -->
                                 <div class="discount-menu">
-                                    <img class="discount-img" src="./assets/img/discount.png" alt="">
+                                    <img class="discount-img" src="assets/img/discount.png" alt="">
                                     <span>Giảm sốc</span>
                                 </div>
                                 <div class="product-name-menu">
@@ -124,7 +125,7 @@
 
     </div>
     <jsp:include page="layout/footer.jsp"/>
-    <script src="./assets/js/HeaderFixed.js"></script>
+    <script src="assets/js/HeaderFixed.js"></script>
 
 
     <!-- Optional JavaScript -->
@@ -146,24 +147,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
             integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/Loader.js"></script>
+    <script src="assets/js/Loader.js"></script>
     <!-- <script src="js/wow.min.js"></script> -->
-    <script src="./assets/js/OWL.js"></script>
+    <script src="assets/js/OWL.js"></script>
 
-    <script src="./assets/js/wowjs-1/wow.min.js"></script>
-    <script src="./assets/js/WowJS.js"></script>
+    <script src="assets/js/wowjs-1/wow.min.js"></script>
+    <script src="assets/js/WowJS.js"></script>
     <script>
-        function  load10product(){
+        function load10product() {
             var n = document.getElementsByClassName('producttop10').length;
             $.ajax({
                 type: "post",
-                url: "/Adev/AjaxAllProductController",
-                data:{
-                    numberpr :n
+                url: "/TestJSP/AjaxAllProductController",
+                data: {
+                    numberpr: n
                 },
                 success: function (data) {
-                    var menuproduct=document.getElementById('menu-product');
-                    menuproduct.innerHTML+=data;
+                    var menuproduct = document.getElementById('menu-product');
+                    menuproduct.innerHTML += data;
                 }
             });
         }

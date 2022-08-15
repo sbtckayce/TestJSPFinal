@@ -103,11 +103,10 @@
                         </c:forEach>
 
 
-
                     </select>
                 </div>
                 <div class="button-addpr">
-                    <a href="/Adev/sellproduct" style="background: #fff;
+                    <a href="/TestJSP/sellproduct" style="background: #fff;
     color: #000;
     border-radius: 5px;
 

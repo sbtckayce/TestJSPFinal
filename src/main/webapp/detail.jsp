@@ -36,15 +36,97 @@
 
     <link rel="stylesheet" href="./assets/js/wowjs-1/animate.css">
     <style>
-        .add-cart-btn:hover{
+        .add-cart-btn:hover {
             color: #000 !important;
             transition: all 0.5s linear;
             background: #FFF200 !important;
         }
-        .img-detail-list img:hover{
-            border:  2px solid #4285DE !important;
+
+        .img-detail-list img:hover {
+            border: 2px solid #4285DE !important;
         }
 
+        input, textarea {
+            outline: none;
+            border-radius: 3px;
+            border: 1px solid #000;
+            font-size: 18px !important;
+        }
+
+        .form-comment {
+            width: 500px;
+            margin: 0 auto;
+            display: flow-root;
+            background-color: #F0F8FF;
+        }
+
+        .form-group {
+            margin: 10px 0;
+            padding: 5px 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px !important;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding-left: 10px;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            padding-left: 10px;
+        }
+
+        .btn-comment {
+            margin: 0 auto;
+            width: max-content;
+            display: block;
+            border: none;
+            border-radius: 3px;
+            background-color: #4285DE;
+            font-size: 18px;
+            padding: 5px 15px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .btn-comment:hover {
+            color: #FFF200;
+        }
+
+        #comment-list {
+            width: 900px;
+            margin: 15px auto;
+
+
+        }
+
+        .comment-content {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: aqua;
+        }
+
+        .comment-content-name {
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .comment-content-date {
+            font-size: 18px;
+
+        }
+
+        .comment-content-desc {
+            font-size: 18px;
+
+        }
     </style>
     <title>Document</title>
 </head>
@@ -161,7 +243,34 @@ box-shadow: 0px 0px 8px 1px rgba(204,204,204,1);">
             </div>
         </div>
     </div>
-    <jsp:include page="layout/footer.jsp"/>
+    <form class="form-comment">
+        <div class="form-group">
+            <label>
+                Name
+            </label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="form-group">
+            <label>
+                Comment
+            </label>
+            <textarea id="desc"></textarea>
+        </div>
+        <button type="button" class="btn-comment" onclick="loadAjax()">>Comment</button>
+    </form>
+    <div id="comment-list">
+
+    </div>
+
+
+    <%--    <c:forEach var="cm" items="${commentList}">--%>
+    <%--        <p>${cm.name}</p>--%>
+    <%--        <p>${cm.desc}</p>--%>
+    <%--    </c:forEach>--%>
+
+</div>
+<jsp:include page="layout/footer.jsp"/>
 
 
 </div>
@@ -196,6 +305,62 @@ box-shadow: 0px 0px 8px 1px rgba(204,204,204,1);">
 
 <script src="./assets/js/zoomsl.js"></script>
 <script>
+    function loadAjax() {
+        var name = document.getElementById("name").value;
+        var desc = document.getElementById("desc").value;
+        console.log('1name', name)
+        console.log('1desc', desc)
+        if (name.trim() == "" || desc.trim() == "") {
+            alert("All fields are Required");
+            return false;
+        }
+
+
+        // var url = "AllCommentController?name=" + name + "&desc=" + desc
+        var url = "ajaxRequestPage.jsp?name=" + name + "&desc=" + desc
+
+        if (window.XMLHttpRequest) {
+
+            request = new XMLHttpRequest();
+
+        } else if (window.ActiveXObject) {
+
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        try {
+            request.onreadystatechange = sendInfo;
+            request.open("POST", url, true);
+            request.send();
+
+        } catch (e) {
+            document.write(e);
+        }
+    }
+
+    function sendInfo() {
+        var p = document.getElementById("comment-list");
+
+        if (request.readyState == 1) {
+            var text = request.responseText;
+            p.innerHTML = "Please Wait...";
+            console.log("1");
+        }
+
+        if (request.readyState == 2) {
+            var text = request.responseText;
+            console.log("2");
+        }
+        if (request.readyState == 3) {
+            var text = request.responseText;
+            console.log("3");
+        }
+        if (request.readyState == 4) {
+            var text = request.responseText;
+            p.innerHTML = " Your Comment has been Posted  " + text;
+        }
+    }
+</script>
+<script>
 
     $(document).ready(function () {
         $('.img-detail-list img').mousemove(function (e) {
@@ -204,7 +369,7 @@ box-shadow: 0px 0px 8px 1px rgba(204,204,204,1);">
             $('.img-detail img').attr('src', $(this).attr("data-img"))
         })
         $('.img-detail img').imagezoomsl({
-            zoomrange: [3,3]
+            zoomrange: [3, 3]
         })
         currencyVND()
     })
@@ -212,21 +377,22 @@ box-shadow: 0px 0px 8px 1px rgba(204,204,204,1);">
 
     var newPriceDetail = document.querySelector('.newprice-detail')
 
-    var inputOldPrice =document.querySelector('.input-oldPrice')
+    var inputOldPrice = document.querySelector('.input-oldPrice')
 
-    var inputNewPrice =document.querySelector('.input-newPrice')
+    var inputNewPrice = document.querySelector('.input-newPrice')
 
-    function currencyVND(){
-        var oldP =inputOldPrice.value
-        var oldPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(oldP)
-        oldPriceDetail.innerHTML= oldPrice
+    function currencyVND() {
+        var oldP = inputOldPrice.value
+        var oldPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(oldP)
+        oldPriceDetail.innerHTML = oldPrice
 
-        var newP =inputNewPrice.value
-        var newPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(newP)
+        var newP = inputNewPrice.value
+        var newPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(newP)
         newPriceDetail.innerHTML = newPrice
     }
 
 </script>
+
 
 </body>
 </html>

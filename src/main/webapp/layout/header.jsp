@@ -13,14 +13,14 @@
 <div class="header">
     <div class="header-top">
         <div class="header-top-img">
-            <a href="/Adev/HomeController">
+            <a href="/TestJSP/HomeController">
                 <img src="https://cdn.tgdd.vn/2021/10/banner/1200-44-1200x44-1.png" alt="">
             </a>
         </div>
     </div>
     <div class="header-second wow bounceInLeft">
         <div class="header-second-menu">
-            <a href="/Adev/HomeController" class="header-second-menu-logo">
+            <a href="/TestJSP/HomeController" class="header-second-menu-logo">
                 <div></div>
             </a>
             <div class="header-second-menu-device">
@@ -43,9 +43,9 @@
                         </button>
                     </form>
 
-                    <a href="/Adev/CartController" class="header-second-menu-cart" style="position: relative">
-                        <i></i>
+                    <a href="/TestJSP/CartController" class="header-second-menu-cart" style="position: relative">
 
+                        <i></i>
                         Giỏ Hàng
 <c:if test="${sessionScope.cart.sizeCart()>0}">
                         <span style="    width: 15px;
@@ -84,17 +84,24 @@
                     <div class="header-second-menu-list">
 
 
-                        <div class="header-second-menu-border">
-                        </div>
                         <c:if test="${sessionScope.userlogin==null}">
 
-                            <a href="/Adev/signin.jsp">Đăng Nhập</a>
+                            <a href="/TestJSP/signin.jsp" style="width: fit-content"> <i
+                                    class="fa-solid fas fa-user-alt"
+                                    style="height: 40px;line-height: 40px;color: #fff;padding-right: 6px"></i>
+                                Đăng Nhập</a>
                         </c:if>
                         <c:if test="${sessionScope.userlogin!=null}">
-                            <a href="">Hello : ${sessionScope.userlogin.username}</a>
+                            <a href="#"><i
+                                    class="fa-solid fas fa-user-alt"
+                                    style="height: 40px;line-height: 40px;color: #fff;padding-right: 6px"></i>${sessionScope.userlogin.username}
+                            </a>
                             <div class="header-second-menu-border">
                             </div>
-                            <a href="logout">Đăng Xuất</a>
+
+                            <a href="logout" style="width: fit-content"><i class="fas fa-sign-out-alt"
+                                                                           style="height: 39px;line-height: 39px;color: #fff;padding-right: 6px"></i>
+                                Đăng Xuất</a>
                         </c:if>
 
                     </div>
@@ -107,7 +114,7 @@
             <div class="header-three-menu-category">
                 <p>Danh mục</p>
                 <i class="fas fa-sort-down"></i>
-                <a href="/Adev/AllProductController">Tất cả nhóm hàng</a>
+                <a href="/TestJSP/AllProductController">Tất cả nhóm hàng</a>
             </div>
             <div class="header-three-menu-list">
                 <a href="">Máy Giặt mua Online giảm đến 30%</a>

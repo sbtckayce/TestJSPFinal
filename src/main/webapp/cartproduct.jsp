@@ -18,8 +18,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
     <%--    <link rel="stylesheet"--%>
     <%--          href="./assets/font/fontawesome-free-5.15.4-web (1)/fontawesome-free-5.15.4-web/css/all.min.css">--%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet/less" type="text/css" href="./assets/css/style.less"/>
+    <link rel="stylesheet/less" type="text/css" href="assets/css/style.less"/>
     <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -44,19 +44,20 @@
           integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <link rel="stylesheet" href="./assets/js/wowjs-1/animate.css">
+    <link rel="stylesheet" href="assets/js/wowjs-1/animate.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <style>
-        input::placeholder{
+        input::placeholder {
             color: #000;
             font-weight: 500;
         }
+
         @keyframes rightLeft {
             from {
                 /*opacity: 0;*/
                 margin-right: -100px;
             }
-            to{
+            to {
                 /*opacity: 1;*/
                 margin-right: 150px;
             }
@@ -189,7 +190,7 @@ background-color: #fff;border: none">
                         <div class="float-left">
                                 <%--                        <a href="/Adev/HomeController">Back</a>--%>
                             <div class="pt-5">
-                                <h6 class="mb-0"><a href="/Adev/HomeController" class="text-body" style="font-weight: 400;
+                                <h6 class="mb-0"><a href="/TestJSP/HomeController" class="text-body" style="font-weight: 400;
     color: #fff !important;
     padding: 10px;
     background-color: #4285DE;
@@ -206,8 +207,9 @@ background-color: #fff;border: none">
                     </div>
                     <div class="d-flex justify-content-center">
 
-                        <form id="form" action="/Adev/CheckoutController" method="post" style="background: #2f3542;padding: 10px 15px;width: 700px; margin: 50px 0 ">
-                    <c:if test="${sessionScope.userlogin!=null}">
+                        <form id="form" action="/TestJSP/CheckoutController" method="post"
+                              style="background: #2f3542;padding: 10px 15px;width: 700px; margin: 50px 0 ">
+                            <c:if test="${sessionScope.userlogin!=null}">
                             <input type="text" name="name" id="name" placeholder="Nhap Ten Nguoi Nhan ..."
                                    style="display: block;
     overflow: hidden;
@@ -304,7 +306,7 @@ margin: 20px 0;background: #fff;
                 </c:if>
                 <c:if test="${sessionScope.cart.sizeCart()==0}">
                     <div class="empty-cart" style="margin: 0 auto; width: 1200px">
-                        <img src="./assets/img/Empty-Cart.jpg" alt="" style="width: 100%">
+                        <img src="assets/img/Empty-Cart.jpg" alt="" style="width: 100%">
                     </div>
                 </c:if>
             </div>
@@ -339,7 +341,7 @@ margin: 20px 0;background: #fff;
 <jsp:include page="layout/footer.jsp"/>
 </div>
 
-<script src="./assets/js/HeaderFixed.js"></script>
+<script src="assets/js/HeaderFixed.js"></script>
 
 
 <!-- Optional JavaScript -->
@@ -362,15 +364,15 @@ margin: 20px 0;background: #fff;
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="./assets/js/Loader.js"></script>
+<script src="assets/js/Loader.js"></script>
 
 
-<script src="./assets/js/OWL.js"></script>
+<script src="assets/js/OWL.js"></script>
 
 
 <!-- <script src="js/wow.min.js"></script> -->
-<script src="./assets/js/wowjs-1/wow.min.js"></script>
-<script src="./assets/js/WowJS.js"></script>
+<script src="assets/js/wowjs-1/wow.min.js"></script>
+<script src="assets/js/WowJS.js"></script>
 <!-- Popper JS -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
@@ -405,7 +407,7 @@ margin: 20px 0;background: #fff;
 
             console.log(id)
             $.ajax({
-                url: "/Adev/RemoveCartController",
+                url: "/TestJSP/RemoveCartController",
                 method: "POST",
                 data: {
                     id: id
